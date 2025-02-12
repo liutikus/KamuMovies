@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Nav from './Nav/Nav';
-import Carousell from './Carousell/MainCarousel';
+import Carousell from './MainCarousel/MainCarousel';
 
 
 

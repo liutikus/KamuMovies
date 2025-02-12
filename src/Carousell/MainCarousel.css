@@ -1,0 +1,79 @@
+.main-card-container{
+    margin-top: 50px;
+    padding-inline-end: 20px;
+
+}
+
+.background-img-container{
+    position: relative;
+}
+
+.backdrop-img{
+    position: relative;
+    width: 800px;
+    border-radius: 20px;
+}
+
+.card-container{
+    position: absolute;
+    width: 80%;
+    bottom: 5%;
+    z-index: 2;
+    display: flex;
+    padding-inline: 3em;
+}
+
+.card-container img{
+    width: 120px;
+    border-radius: 5%;
+}
+
+.text-container{
+    padding-inline-start: 2em;
+}
+
+.title{
+    font-size: 2em;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+}
+
+.overview{
+    font-size: 0.8em;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.add-btn{
+    background-color: #362166;
+    padding-inline: 1.5em;
+    padding-block: 0.5em;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-block: 1em;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+    .backdrop-img{
+        width: 350px;
+    }
+
+    .card-container img{
+        width: 100px;
+    }
+
+    .text-container{
+        font-size: 0.5em;
+    }
+
+   .overview{
+    font-size: 1.2em;
+   
+   }
+}

@@ -1,0 +1,139 @@
+.nav-container{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 3em;
+    padding-block: 1em;
+    background-color: #151515;
+}
+
+.nav-logo p{
+    font-size: 1.5em;
+    cursor: default;
+}
+
+.nav-logo span{
+    color: #362166;
+    font-size: 0.8em;
+}
+
+
+
+.nav-tabs ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-tabs li{
+    position: relative;
+    padding-inline: 1.5em;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.underline{
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    margin-inline:20px ;
+    background-color: #362166;
+    border-radius: 20px;  
+}
+
+.nav-input{
+    background-color: #232323;
+   border-radius: 7px;
+    padding-inline: 1em;
+}
+
+.nav-input input, button{
+    background:none;
+    border-style: none;
+    color: #e3eaeb;
+    margin-top: 5px;
+}
+
+.nav-input button{
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.nav-burger-container{
+    display: none;
+}
+
+.search-icon{
+    font-size: 2em;
+    padding-block-start: 0.5em;
+    padding-inline: 1em;
+    cursor:pointer;
+    display: none;
+}
+
+.search-container{
+    position: absolute;
+
+    display: none;
+
+}
+
+.input-roll-container{
+    display: flex;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-color: #151515;
+    width: 100vw;
+    height: 50px;
+    transform: translatey(0%);
+    transition: all 0.5s;
+}
+
+.active{
+transform: translatey(90%);
+}
+
+.input-roll-container input {
+    width: 90vw;
+    height:50px;
+    background-color: #151515;
+    border-style: none;
+    color: #e3eaeb;
+    padding-inline: 2em;
+}
+
+@media only screen and (max-width: 900px) {
+    .nav-container{
+        padding: 0;
+        font-size: 0.8em;
+        
+    }
+    .nav-input {
+        display: none;
+    }
+
+    .nav-logo{
+        display: none;
+    }
+
+    .nav-tabs{
+        padding-block: 1em;
+    }
+
+    .nav-burger-container{
+        display: block;
+    }
+
+    .search-icon{
+        display: block;
+    }
+    .search-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}
+

@@ -8,8 +8,6 @@ import * as motion from "motion/react-client"
 
 const Carousell = ({movieData}) => {
 
-    console.log(movieData)
-
     const flickityOptions = {
         draggable: false,
         wrapAround: true,

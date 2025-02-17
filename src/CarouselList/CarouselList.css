@@ -1,0 +1,88 @@
+.main-carousel-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    cursor: default;
+
+}
+
+.carousel-title{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-inline-start: 2em;
+    padding-block-end: 10px;
+}
+
+.carousel-card-container{
+   padding-inline-start: 10px;
+}
+
+.carousel-card-container img{
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+   
+}
+
+.movie-title{
+    font-size: 0.9em;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+.movie-info{
+    font-size: 0.9em;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.movie-info p{
+color: #5a5a5a;
+margin-top: 2px;
+
+}
+
+.movie-info-btns{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+
+}
+
+.movie-info-btns button{
+    margin-top: 0;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.raiting-text, .star{
+    color: #b29441 !important;
+    cursor: default;
+}
+
+@media only screen and (max-width: 900px) {
+.carousel-card-container img{
+    width: 150px;
+    height:225px;
+}
+
+.main-carousel-container{
+    padding-inline-start: 1em;
+}
+
+.movie-title{
+    font-size: 0.8em;
+    width: 150px;
+}
+
+.movie-info{
+    font-size: 0.8em;
+}
+
+.carousel-title{
+    font-size: 1.2em
+}
+}
+

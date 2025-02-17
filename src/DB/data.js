@@ -1,1 +1,1 @@
-export const tabsName = ['Home', 'Movies', 'Anime', 'TvShows']
+export const tabsName = ['Home','Movies','TvShows',  ]

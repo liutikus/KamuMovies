@@ -8,7 +8,7 @@ import { IoMdClose } from "react-icons/io";
 
 
 
-const Nav = () => {
+const Nav = ({testFunc}) => {
 
     const [selectedTab, setSelectedTab] = useState(tabsName[0])
     const [isOpen, setIsOpen] = useState(false)
@@ -24,7 +24,10 @@ const Nav = () => {
                 {tabsName.map((tab, index)=>(
                     <li
                     key={index}
-                    onClick={()=>setSelectedTab(tab)}
+                    onClick={()=>{
+                        setSelectedTab(tab)
+                        testFunc(tab)
+                    }}
                     >{tab}
                         {tab === selectedTab ? (
                             <motion.div 

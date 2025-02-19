@@ -20,3 +20,9 @@ body{
 
 input:focus{
 outline: none;}
+
+a{
+  color: #e3eaeb;
+  text-decoration: none;
+  
+}

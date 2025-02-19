@@ -5,11 +5,12 @@
     padding-inline: 3em;
     padding-block: 1em;
     background-color: #151515;
+    
 }
 
 .nav-logo p{
     font-size: 1.5em;
-    cursor: default;
+    cursor: pointer;
 }
 
 .nav-logo span{

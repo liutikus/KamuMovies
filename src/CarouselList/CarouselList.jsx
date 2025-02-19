@@ -3,6 +3,7 @@ import './CarouselList.css'
 import Flickity from 'react-flickity-component'
 import { CiStar,CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 
 const CarouselList = ({movieData, carouselTitle}) => {
@@ -27,15 +28,17 @@ const CarouselList = ({movieData, carouselTitle}) => {
         disableImagesLoaded={false} // default false
         reloadOnUpdate // default false
         static>
-        {movieData.map(({poster_path, title, id, release_date, vote_average, first_air_date})=>(
+        {movieData.map(({poster_path, title, id, release_date, vote_average, first_air_date, name})=>(
             
         <div
         key={id}
         className='carousel-card-container'>
+          <NavLink to={`/movie/${id}`}>
             <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
             <p className="movie-title">
-                {title}
+                {title ? title: name}
             </p>
+          </NavLink>
             <div className="movie-info">
                 <p>{release_date ? 
                  new Date(release_date).getFullYear():

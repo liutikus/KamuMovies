@@ -4,31 +4,35 @@ import { CiSearch } from "react-icons/ci";
 import {tabsName} from '../DB/data.js'
 import * as motion from "motion/react-client"
 import { IoMdClose } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 
-
-
-const Nav = ({testFunc}) => {
+const Nav = ({getMediaType, customTabs}) => {
 
     const [selectedTab, setSelectedTab] = useState(tabsName[0])
     const [isOpen, setIsOpen] = useState(false)
+
+    const tabs = customTabs ? customTabs : tabsName
 
   return (
     <div>
       <div className="nav-container">
         <div className="nav-logo">
+        <NavLink to="/" end>
             <p>Kamu&<span>Movies</span></p>
+            </NavLink>
         </div>
         <div className="nav-tabs">
             <ul>
-                {tabsName.map((tab, index)=>(
+                {tabs.map((tab, index)=>(
                     <li
                     key={index}
                     onClick={()=>{
                         setSelectedTab(tab)
-                        testFunc(tab)
-                    }}
-                    >{tab}
+                        getMediaType(tab)
+                    }}>
+                    
+                        {tab}
                         {tab === selectedTab ? (
                             <motion.div 
                             layoutId='underline'
@@ -36,7 +40,9 @@ const Nav = ({testFunc}) => {
 
                         ): null}
 
+
                     </li>
+
                     
                 ))}
             </ul>

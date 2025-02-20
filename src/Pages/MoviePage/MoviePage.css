@@ -2,9 +2,8 @@
     position: relative;
 }
 
-.background-container img{
-    width: 100vw ;
-}
+.background-img{
+height: 900px;}
 
 .bakcground-black{
     position: absolute;
@@ -22,6 +21,7 @@
     left: 10%;
     z-index: 3;
     display: flex;
+    
 }
 
 .poster-details-container img{
@@ -55,9 +55,14 @@ width: 400px;
     margin-block: 5px;
 }
 
-.overview-details-container{
+.overview-details-container p{
     margin-top: 1em;
     font-weight: 200;
+}
+
+.overview-details-container div{
+    margin-top: 10px;
+    font-size: 1.5em;
 }
 
 .credits-container{
@@ -65,6 +70,7 @@ width: 400px;
     justify-content: space-around;
 
 }
+
 
 .credits-card{
     margin-inline-start: 10px;

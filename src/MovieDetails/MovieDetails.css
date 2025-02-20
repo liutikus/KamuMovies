@@ -1,0 +1,74 @@
+.movie-details-container{
+    margin-top: 50px;
+    display: flex;
+    margin-inline: 4em;
+    
+}
+
+.trailer-container{
+    padding-block:1em ;
+    margin-inline-start: 20px;
+    height: fit-content;
+    position: relative;
+    margin-top: 10px;
+}
+.trailer-video{
+ width: 500px;
+ height: 300px;
+ border-radius: 20px;
+ margin-top: 20px;
+ padding-inline: 2em;
+
+}
+
+.trailer-container p{
+    font-size: 2em;
+    text-align: center;
+}
+
+.actors-container{
+    max-height: 800px;
+    width: 50%;
+    display: grid;
+   grid-template-columns: auto auto ;
+}
+
+.actors-container h1{
+grid-column: span 2;
+margin-inline-start: 1em;
+margin-block-end: 1em;
+}
+
+.actors-card{
+    display: flex;
+    margin-bottom: 20px;
+    width: 200px;
+    position: relative;
+    padding-inline: 10px;
+    height: 145px;
+    
+}
+.actors-card img{
+    width: 90px;
+    border-radius: 20px;
+    margin-inline-end: 5px;
+    padding: 5px;
+    
+}
+
+.character-name{
+    color: #aaacad;
+    margin-top: 10px;
+}
+
+.bakcground-actors-black{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #362166;
+    z-index: -1;
+    opacity: 0.3;
+    border-radius: 20px;
+    top: 0;
+}
+

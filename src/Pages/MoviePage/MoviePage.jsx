@@ -4,13 +4,14 @@ import axios from "axios";
 import Nav from "../../Nav/Nav";
 import "./MoviePage.css";
 import { FaStar } from "react-icons/fa";
-import MovieDetail from "../../MovieDetails/MovieDetails";
+import MovieDetails from "../../MovieDetails/MovieDetails";
 
 const MoviePage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [credits, setCredits] = useState(null);
   const [img, setImg] = useState(null);
+  const [video, setVideo] = useState(null)
 
   const fetchMovieDetails = (setData, credits) => {
     const options = {
@@ -33,10 +34,11 @@ const MoviePage = () => {
     fetchMovieDetails(setMovie, "");
     fetchMovieDetails(setCredits, "/credits");
     fetchMovieDetails(setImg, "/images");
+    fetchMovieDetails(setVideo, "/videos")
   }, [id]);
 
   console.log(movie, credits);
-  console.log(img);
+  console.log(img, video);
   return (
     <div>
       <Nav customTabs={[""]} />
@@ -84,6 +86,10 @@ const MoviePage = () => {
                    <span><FaStar/></span> <p>{movie.vote_average.toFixed(1)} / 10 <span>({movie.vote_count})</span></p>
                 </div>
                 <div className="overview-details-container">
+                    {credits.crew.filter(({job})=>job === 'Director')
+                        .map(({name, id})=>(
+                        <div key={id}>Director: {name}</div>
+                        ))}
                     <p>{movie.overview}</p>
                 </div>
                 <div className="credits-container">
@@ -92,7 +98,7 @@ const MoviePage = () => {
                         <div key={id} className="credits-card">
                             <img src={`https://image.tmdb.org/t/p/original${profile_path}`} alt="" />
                             <p>{name}</p>
-                            <span>({character})</span>
+                            <span>{character}</span>
                         </div>
                     ))}
             </div>
@@ -101,7 +107,11 @@ const MoviePage = () => {
             </div>
           </div>
           <div>
-            <MovieDetail/>
+            <MovieDetails movie={movie}
+             credits={credits}
+              video={video.results}
+              images={img}
+              />
           </div>
         </div>
       )}

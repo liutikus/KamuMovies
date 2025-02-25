@@ -107,8 +107,8 @@ function App() {
         {tab === 'TvShows' && popularTv && topTv && (
         <div>
         <Carousell movieData={popularTv} />
+          <CarouselList carouselTitle={"Popular"} movieData={popularTv} />
           <CarouselList carouselTitle={"Top Rated"} movieData={topTv} />
-          <CarouselList carouselTitle={"Top Rated"} movieData={popularTv} />
 
           
         </div>

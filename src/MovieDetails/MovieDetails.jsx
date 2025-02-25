@@ -1,70 +1,58 @@
 import React, { useEffect, useState } from 'react'
-import YouTube from 'react-youtube';
 import './MovieDetails.css'
-import errorImg from '/Images/no-profile-picture.png'
-import { MasonryPhotoAlbum } from "react-photo-album";
-import "react-photo-album/masonry.css";
+import YouTube from 'react-youtube'
+import { RowsPhotoAlbum } from "react-photo-album";
+import "react-photo-album/rows.css";
+import CarouselList from '../CarouselList/CarouselList';
 
+const MovieDetails = ({movie, videos, credits, images, recom}) => {
 
-const MovieDetails = ({movie, credits, video, images}) => {
+const trailer = videos.find(({type})=> type === 'Trailer')
 
-  const trailer = video.find(({type})=>type === 'Trailer')
-  const [backdropsImages, setBackdropsImages] = useState([{
-    src: '',
-    width: 0,
-    height: 0,
-    srcSet: [
-      { src: "", width: 0, height: 0 },
-      { src: "", width: 0, height: 0 },
-    ],
-  }])
-  useEffect(()=>{
-    if (!images?.posters?.length) return;
+const[backdropsImages, setBackdropsImages]= useState([])
 
-    setBackdropsImages(
-      images.backdrops.slice(0, 10).map(({ file_path, height, width }) => ({
-        src: `https://image.tmdb.org/t/p/original${file_path}`,
-        width: width/10,
-        height: height/10,
-      }))
-    );
-  },[images])
+useEffect(() => {
+  if (!images?.backdrops?.length) return; // Ensures images.posters exists and isn't empty
 
-console.log(backdropsImages)
+  setBackdropsImages(
+    images.backdrops.slice(1, 4).map(({ file_path, height, width }) => ({
+      src: `https://image.tmdb.org/t/p/original${file_path}`,
+      width,
+      height,
+    }))
+  );
+}, [images]); 
+
+  console.log(videos)
+
   return (
-    <div>
+    <div className='main-movie-details-container'>
+      <div className="media-movie-details-container">
 
-    <div className='movie-details-container'>
-      <div className="actors-container">
-        <h1>Top Cast</h1>
-        {credits.cast.slice(0, 10).map(({name, character, profile_path, id})=>(
-          <div key={id} className='actors-card'>
-            <img src={`https://image.tmdb.org/t/p/original${profile_path}`} alt="-NO PHOTO-"  onError={e=> e.target.src = errorImg}/>
-            <div>
-            <p>{name}</p>
-            <p className='character-name'>{character}</p>
+      <div className="images-container">
+        <h1>Images:</h1>
+      <RowsPhotoAlbum photos={backdropsImages}
+      targetRowHeight={200}
+      rowConstraints={{ singleRowMaxHeight: 150 }}
+      />
+        <div className="background-black"></div>
+        
 
-            </div>
-            <div className="bakcground-actors-black"/>
-          </div>
-        ))}
       </div>
-      <div className="trailer-container">
-        <div>
-        <div>
-        <p>Official Trailer</p>
-      <YouTube iframeClassName='trailer-video' videoId={trailer.key} />
-        </div>
-      <div className="bakcground-actors-black"/>
-        </div>
-        <div className="photos-album-conatiner">
-          <MasonryPhotoAlbum photos={backdropsImages}/>
-        </div>
+      <div className="videos-container">
+        <h1>Official Trailer:</h1>
+        <YouTube
+        videoId={trailer.key}
+        iframeClassName='trailer-video'
+        />
+        <div className="background-black"></div>
       </div>
-    </div>
-      {backdropsImages.map(({src})=>(
-        <img src={src}/>
-      ))}
+      </div>
+      <div className="recom-movies-container">
+          <CarouselList carouselTitle={"You may like"} movieData={recom}/>
+          <div className="background-black"></div>
+
+      </div>
     </div>
   )
 }

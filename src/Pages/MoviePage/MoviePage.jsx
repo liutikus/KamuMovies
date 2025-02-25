@@ -12,6 +12,7 @@ const MoviePage = () => {
   const [credits, setCredits] = useState(null);
   const [img, setImg] = useState(null);
   const [video, setVideo] = useState(null)
+  const[recom, setRecom]= useState(null)
 
   const fetchMovieDetails = (setData, credits) => {
     const options = {
@@ -35,6 +36,7 @@ const MoviePage = () => {
     fetchMovieDetails(setCredits, "/credits");
     fetchMovieDetails(setImg, "/images");
     fetchMovieDetails(setVideo, "/videos")
+    fetchMovieDetails(setRecom, "/recommendations")
   }, [id]);
 
   console.log(movie, credits);
@@ -44,7 +46,7 @@ const MoviePage = () => {
       <Nav customTabs={[""]} />
 
       {movie && credits && (
-        <div>
+        <div className="main-movie-page-container">
           <div className="background-container">
             <img
               src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
@@ -53,6 +55,8 @@ const MoviePage = () => {
             />
             <div className="bakcground-black" />
             <div className="main-details-container">
+                <div className="general-info-container">
+
               <div className="poster-details-container">
                 <img
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -92,6 +96,7 @@ const MoviePage = () => {
                         ))}
                     <p>{movie.overview}</p>
                 </div>
+                    <h1>Top Cast:</h1>
                 <div className="credits-container">
                     {credits.cast.slice(0,5).
                     map(({profile_path, name, character, id})=>(
@@ -103,15 +108,14 @@ const MoviePage = () => {
                     ))}
             </div>
               </div>
-           
-            </div>
-          </div>
-          <div>
+                </div>
             <MovieDetails movie={movie}
              credits={credits}
-              video={video.results}
+              videos={video.results}
               images={img}
-              />
+              recom={recom.results}
+            />
+            </div>
           </div>
         </div>
       )}

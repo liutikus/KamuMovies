@@ -10,7 +10,7 @@ ReactDOM.createRoot(root).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/movie/:id" element={< MoviePage/>} />
+      <Route path="/:mediaType/:id" element={< MoviePage/>} />
 
     </Routes>
   </BrowserRouter>

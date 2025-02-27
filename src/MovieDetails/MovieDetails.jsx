@@ -3,7 +3,6 @@ import './MovieDetails.css'
 import YouTube from 'react-youtube'
 import { RowsPhotoAlbum } from "react-photo-album";
 import "react-photo-album/rows.css";
-import CarouselList from '../CarouselList/CarouselList';
 
 const MovieDetails = ({movie, videos, credits, images, recom}) => {
 
@@ -48,11 +47,7 @@ useEffect(() => {
         <div className="background-black"></div>
       </div>
       </div>
-      <div className="recom-movies-container">
-          <CarouselList carouselTitle={"You may like"} movieData={recom}/>
-          <div className="background-black"></div>
-
-      </div>
+     
     </div>
   )
 }

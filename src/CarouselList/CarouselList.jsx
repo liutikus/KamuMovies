@@ -6,7 +6,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
 
-const CarouselList = ({movieData, carouselTitle}) => {
+const CarouselList = ({movieData, carouselTitle, mediaType}) => {
 
     const flickityOptions = {
         initialIndex: 0,
@@ -28,15 +28,16 @@ const CarouselList = ({movieData, carouselTitle}) => {
         disableImagesLoaded={false} // default false
         reloadOnUpdate // default false
         static>
-        {movieData.map(({poster_path, title, id, release_date, vote_average, first_air_date, name})=>(
+        {movieData.map(({poster_path, title, id, release_date, vote_average, first_air_date, name,})=>(
             
         <div
         key={id}
         className='carousel-card-container'>
-          <NavLink to={`/movie/${id}`}>
+          <NavLink to={`/${mediaType}/${id}`}>
             <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
             <p className="movie-title">
                 {title ? title: name}
+                {console.log(mediaType)}
             </p>
           </NavLink>
             <div className="movie-info">

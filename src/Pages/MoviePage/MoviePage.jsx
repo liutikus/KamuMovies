@@ -5,9 +5,14 @@ import Nav from "../../Nav/Nav";
 import "./MoviePage.css";
 import { FaStar } from "react-icons/fa";
 import MovieDetails from "../../MovieDetails/MovieDetails";
+import noImage from '/Images/no-profile-picture.png'
+import TvDetails from "../../TvDetails/TvDetails";
+import CarouselList from "../../CarouselList/CarouselList";
+
 
 const MoviePage = () => {
   const { id } = useParams();
+  const {mediaType} = useParams()
   const [movie, setMovie] = useState(null);
   const [credits, setCredits] = useState(null);
   const [img, setImg] = useState(null);
@@ -17,7 +22,7 @@ const MoviePage = () => {
   const fetchMovieDetails = (setData, credits) => {
     const options = {
       method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${id}${credits}`,
+      url: `https://api.themoviedb.org/3/${mediaType}/${id}${credits}`,
       headers: {
         accept: "application/json",
         Authorization:
@@ -39,8 +44,7 @@ const MoviePage = () => {
     fetchMovieDetails(setRecom, "/recommendations")
   }, [id]);
 
-  console.log(movie, credits);
-  console.log(img, video);
+
   return (
     <div>
       <Nav customTabs={[""]} />
@@ -53,6 +57,7 @@ const MoviePage = () => {
               alt=""
               className="background-img"
             />
+            
             <div className="bakcground-black" />
             <div className="main-details-container">
                 <div className="general-info-container">
@@ -101,7 +106,11 @@ const MoviePage = () => {
                     {credits.cast.slice(0,5).
                     map(({profile_path, name, character, id})=>(
                         <div key={id} className="credits-card">
-                            <img src={`https://image.tmdb.org/t/p/original${profile_path}`} alt="" />
+                            <img 
+                            src={profile_path ? `https://image.tmdb.org/t/p/original${profile_path}` : noImage} 
+                            alt="NoImg"
+                            onError={(e) => e.currentTarget.src = noImage}
+                            />
                             <p>{name}</p>
                             <span>{character}</span>
                         </div>
@@ -109,16 +118,37 @@ const MoviePage = () => {
             </div>
               </div>
                 </div>
-            <MovieDetails movie={movie}
-             credits={credits}
-              videos={video.results}
-              images={img}
-              recom={recom.results}
-            />
+                {
+                    mediaType === 'movie' ? (
+                    <MovieDetails
+                     movie={movie}
+                    credits={credits}
+                    videos={video.results}
+                    images={img}
+                    />
+                    ) : (
+                        <TvDetails
+                        tv={movie}
+                        credits={credits}
+                        videos={video.results}
+                        images={img}
+                        id={id}
+                        />
+                    )
+                }
+            
+                 <div className="recom-movies-container">
+          <CarouselList carouselTitle={"You may like"} movieData={recom.results} mediaType={mediaType}/>
+          <div className="background-black" style={{borderRadius:0}}>
+
+          </div>
+
+      </div>
             </div>
           </div>
         </div>
       )}
+      
     </div>
   );
 };

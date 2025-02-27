@@ -88,7 +88,7 @@ function App() {
         <div>
         <Carousell movieData={popularMovies} />
           
-          <CarouselList carouselTitle={"Popular TvShows"} movieData={popularTv} />
+          <CarouselList carouselTitle={"Popular TvShows"} movieData={popularTv} mediaType={'tv'} />
           <Carousell movieData={popularTv}/>
 
         </div>
@@ -97,8 +97,8 @@ function App() {
       {tab === 'Movies' && popularMovies && nowPlaying && topMovies&& (
         <div>
         <Carousell movieData={popularMovies} />
-          <CarouselList carouselTitle={"Now Playing"} movieData={nowPlaying} />
-          <CarouselList carouselTitle={"Top Rated"} movieData={topMovies} />
+          <CarouselList carouselTitle={"Now Playing"} movieData={nowPlaying} mediaType={'movie'} />
+          <CarouselList carouselTitle={"Top Rated"} movieData={topMovies} mediaType={'movie'} />
 
           
         </div>
@@ -107,8 +107,8 @@ function App() {
         {tab === 'TvShows' && popularTv && topTv && (
         <div>
         <Carousell movieData={popularTv} />
-          <CarouselList carouselTitle={"Popular"} movieData={popularTv} />
-          <CarouselList carouselTitle={"Top Rated"} movieData={topTv} />
+          <CarouselList carouselTitle={"Popular"} movieData={popularTv} mediaType={'tv'}/>
+          <CarouselList carouselTitle={"Top Rated"} movieData={topTv} mediaType={'tv'} />
 
           
         </div>

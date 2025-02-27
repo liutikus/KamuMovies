@@ -1,0 +1,100 @@
+.main-seasons-container{
+    margin-block: 50px;
+   width: 70vw;
+   border-radius: 20px;
+   padding: 2em;
+    position: relative;
+    
+    
+}
+
+.season-card{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.season-card input{
+    padding-inline: 1em;
+    background-color:#0b0d0d;
+    border-radius: 10px;
+    width: 250px;
+    border-style: solid;
+    border-color: #acadae;
+    border-width: 1px;
+    color: #acadae;
+
+}
+
+.select-season{
+  width: 200px;
+  font-weight: 200;
+  
+}
+.trackVertical {
+    right: 2px;
+    bottom: 2px;
+    top: 2px;
+    border-radius: 3px;
+    transition: all 200ms ease !important;
+    cursor: pointer;
+  }
+  
+  .trackVertical:hover,
+  .trackVertical:active {
+    width: 12px !important;
+    border-radius: 8px !important;
+  }
+
+
+.episode-card{
+    display: flex;
+    margin-block: 10px;
+    background-color: #111414;
+    border-radius: 10px;
+    width: 98%;
+    position: relative;
+    
+    
+}
+
+.episode-card img{
+width: 200px;
+height: 112px;
+border-radius: 10px;
+
+
+
+}
+
+.info-episode{
+    padding-inline-start: 10px;
+    font-weight: 200;color:
+    #acadae;
+}
+
+.info-episode p{
+    font-size: 1em;
+    padding-inline: 10px;
+}
+
+.info-episode h1{
+color: #e3eaeb;
+padding-inline:1em ;
+font-weight: 300;
+margin: 2px;
+}
+
+.episode-number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1.2em;
+    padding-inline: 10px;
+    border-radius: 10px 0 10px 0px;
+    color: #e3eaeb;
+    font-weight: 300;
+    
+}
+

@@ -124,3 +124,13 @@ font-size: 2.5em;
     font-size: 0.5em;
     color: #aaacad;
 }
+
+.recom-movies-container{
+    position: absolute;
+    width: 99vw;
+    left: -10vw;
+    margin-block-start: 5em;
+    
+
+    
+}

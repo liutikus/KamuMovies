@@ -104,7 +104,7 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
 
   return (
     <div>
-      <div className="main-seasons-container">
+      <div className="main-seasons-container" style={{textAlign:'start'}}>
         <div className="season-card">
         <Select
             options={selectOptions}
@@ -118,7 +118,7 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
         </div>
         <div className="episodes-container">
             <Scrollbars
-            style={{ width: '100%', height: 500 }}
+            style={{ width: '100%', height: 450 }}
             autoHide
             // Hide delay in ms
             autoHideTimeout={1000}

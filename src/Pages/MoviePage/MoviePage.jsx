@@ -111,8 +111,10 @@ const MoviePage = () => {
                             alt="NoImg"
                             onError={(e) => e.currentTarget.src = noImage}
                             />
+                            <div>
                             <p>{name}</p>
                             <span>{character}</span>
+                            </div>
                         </div>
                     ))}
             </div>

@@ -31,8 +31,7 @@ useEffect(() => {
       <div className="images-container">
         <h1>Images:</h1>
       <RowsPhotoAlbum photos={backdropsImages}
-      targetRowHeight={200}
-      rowConstraints={{ singleRowMaxHeight: 150 }}
+       rows={(containerWidth) => Math.floor(containerWidth / 300)}
       />
         <div className="background-black"></div>
         

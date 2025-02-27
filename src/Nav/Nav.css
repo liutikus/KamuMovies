@@ -6,6 +6,7 @@
     padding-block: 1em;
     background-color: #151515;
     
+    
 }
 
 .nav-logo p{
@@ -104,6 +105,7 @@ transform: translatey(90%);
     border-style: none;
     color: #e3eaeb;
     padding-inline: 2em;
+    z-index: 2;
 }
 
 @media only screen and (max-width: 900px) {
@@ -116,9 +118,10 @@ transform: translatey(90%);
         display: none;
     }
 
-    .nav-logo{
-        display: none;
-    }
+   .nav-logo p, .nav-logo span{
+    display: block;
+    padding: 2px 0 0 10px;
+   }
 
     .nav-tabs{
         padding-block: 1em;

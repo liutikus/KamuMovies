@@ -9,6 +9,12 @@
     width: 100vw;
     z-index: -2;
     top: 0;
+    background-size: cover;  /* Ensures the image covers the entire screen */
+    background-position: center;  /* Centers the image */
+    background-repeat: no-repeat;  /* Prevents repeating */
+    height: fit-content;  /* Full viewport height */
+    width: 100%;  /* Full viewport width */
+    margin: 0;  
 }
 
 .bakcground-black{
@@ -24,8 +30,9 @@
 .main-details-container{
     position: absolute;
     top: 80px;
-    left: 10%;
+    left: 50%;
     z-index: 3;
+    transform: translate(-50%);
 
 }
 
@@ -40,7 +47,7 @@
 
 .info-container{
     padding-inline-start: 50px;
-    width: 500px;
+    /* width: 500px; */
 
 }
 
@@ -127,10 +134,62 @@ font-size: 2.5em;
 
 .recom-movies-container{
     position: absolute;
-    width: 99vw;
+    width: 110vw;
     left: -10vw;
-    margin-block-start: 5em;
-    
+    margin-block-start: 5em;   
+}
 
+@media only screen and (max-width: 900px) {
+.background-img{
+    height: 100%;
+    width: fit-content;
     
+}
+
+.general-info-container{
+    display: block;
+}
+
+.poster-details-container{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-details-container{
+    width: 90%;
+    top: 80px;
+}
+.movie-details-title img{
+    width: 200px;
+    
+}
+
+.overview-details-container p, .overview-details-container h1{
+    width: 300px;
+    text-align: start;
+}
+
+.info-container h1{
+    text-align: start;
+}
+
+.credits-container{
+    display: block;
+}
+
+.credits-card{
+    display: flex;
+}
+
+.credits-card img{
+    width: 80px;
+}
+.credits-card p, .credits-card span{
+    padding-inline: 10px;
+}
+
+.recom-movies-container{
+    left: -10vw;
+    width: 110vw;
+}
 }

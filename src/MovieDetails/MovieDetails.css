@@ -37,12 +37,12 @@
 .images-container{
     position: relative;
     /* border-style: solid; */
-    width: fit-content;
     border-radius: 20px;
     padding: 1em;
     border-width: 1px;
     height: fit-content;
     padding-top: 0;
+    width: 500px;
    
 }
 
@@ -54,4 +54,18 @@
     margin-bottom: 10px;
 }
 
+@media only screen and (max-width: 900px) {
+   .media-movie-details-container{
+    display: block;
+   } 
 
+   .images-container, .videos-container, .trailer-video{
+    width: 330px;
+
+   }
+
+   .videos-container{
+    margin: 0;
+    
+   }
+}

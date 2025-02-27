@@ -59,7 +59,7 @@
 }
 
 .episode-card img{
-width: 200px;
+/* width: 200px; */
 height: 112px;
 border-radius: 10px;
 
@@ -76,6 +76,7 @@ border-radius: 10px;
 .info-episode p{
     font-size: 1em;
     padding-inline: 10px;
+    
 }
 
 .info-episode h1{
@@ -96,5 +97,29 @@ margin: 2px;
     color: #e3eaeb;
     font-weight: 300;
     
+}
+
+@media only screen and (max-width: 900px) {
+    .select-season{
+        width: 120px;
+        font-weight: 200;
+        
+      }
+
+    .season-card input{
+        width: 130px;
+    }
+
+    .episode-card img{
+        height: 100px;
+    }
+
+    .episode-card p{
+        display: none;
+    }
+    .episode-card h1{
+        font-size: 1em;
+        padding: 0px 10px 0px 0;
+    }
 }
 

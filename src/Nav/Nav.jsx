@@ -15,8 +15,10 @@ const Nav = ({getMediaType, customTabs}) => {
     const tabs = customTabs ? customTabs : tabsName
 
   return (
-    <div>
+    <div >
       <div className="nav-container">
+        <div className="upper-nav">
+
         <div className="nav-logo">
         <NavLink to="/" end>
             <p>Kamu&<span>Movies</span></p>
@@ -60,6 +62,7 @@ const Nav = ({getMediaType, customTabs}) => {
                whileHover={{scale: 1.2}}
              whileTap={{scale: 0.8}}
             ><CiSearch/></motion.p>
+        </div>
         <div 
         className="search-container">
             <div className={

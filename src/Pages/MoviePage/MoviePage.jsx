@@ -13,6 +13,7 @@ import CarouselList from "../../CarouselList/CarouselList";
 const MoviePage = () => {
   const { id } = useParams();
   const {mediaType} = useParams()
+  
   const [movie, setMovie] = useState(null);
   const [credits, setCredits] = useState(null);
   const [img, setImg] = useState(null);
@@ -141,7 +142,7 @@ const MoviePage = () => {
             
                  <div className="recom-movies-container">
           <CarouselList carouselTitle={"You may like"} movieData={recom.results} mediaType={mediaType}/>
-          <div className="background-black" style={{borderRadius:0}}>
+          <div className="background-black" >
 
           </div>
 
@@ -150,7 +151,7 @@ const MoviePage = () => {
           </div>
         </div>
       )}
-      
+      {console.log('norm')}
     </div>
   );
 };

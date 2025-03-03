@@ -35,7 +35,7 @@
 .title{
     font-size: 2em;
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* Limit to 3 lines */
+    -webkit-line-clamp: 1; 
     -webkit-box-orient: vertical;
     overflow: hidden;
     
@@ -44,7 +44,7 @@
 .overview{
     font-size: 0.8em;
     display: -webkit-box;
-    -webkit-line-clamp: 5; /* Limit to 3 lines */
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

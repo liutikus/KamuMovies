@@ -4,6 +4,7 @@
    border-radius: 20px;
    padding: 2em;
     position: relative;
+   
     
     
 }
@@ -54,6 +55,7 @@
     border-radius: 10px;
     width: 98%;
     position: relative;
+    overflow-x: hidden;
     
     
 }
@@ -69,8 +71,10 @@ border-radius: 10px;
 
 .info-episode{
     padding-inline-start: 10px;
-    font-weight: 200;color:
-    #acadae;
+    font-weight: 200;
+    color:#acadae;
+    max-height: 112px;
+ 
 }
 
 .info-episode p{
@@ -84,6 +88,11 @@ color: #e3eaeb;
 padding-inline:1em ;
 font-weight: 300;
 margin: 2px;
+display: -webkit-box;
+-webkit-line-clamp: 4;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
 }
 
 .episode-number{
@@ -103,6 +112,7 @@ margin: 2px;
     .select-season{
         width: 120px;
         font-weight: 200;
+        font-size: 0.9em;
         
       }
 
@@ -120,6 +130,10 @@ margin: 2px;
     .episode-card h1{
         font-size: 1em;
         padding: 0px 10px 0px 0;
+    }
+
+    .info-episode h1{
+        font-size: 0.9em;
     }
 }
 

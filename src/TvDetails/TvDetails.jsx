@@ -10,9 +10,6 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 
 const TvDetails = ({tv, images, videos, credits, id}) => {
 
-    console.log(tv)
-    console.log(images)
-    console.log(videos)
     
     const [season, setSeason] = useState(null)
     const [seasonNumber, setSeasonNumber]= useState(1)
@@ -93,14 +90,14 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
     useEffect(()=>{
        fetchSeasonDetails(seasonNumber)
 
-       setSelectOptions(tv.seasons.slice(1,tv.seasons.length).map(({season_number})=>({
+       setSelectOptions(tv.seasons.map(({season_number})=>({
         value: season_number,
         label: `Season ${season_number}`
        })))
 
     },[seasonNumber])
 
-    console.log(season)
+    console.log(tv)
 
   return (
     <div>
@@ -120,9 +117,7 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
             <Scrollbars
             style={{ width: '100%', height: 450 }}
             autoHide
-            // Hide delay in ms
             autoHideTimeout={1000}
-            // Duration for hide animation in ms.
             autoHideDuration={200}
             renderThumbVertical={(props) => (
                 <div
@@ -143,7 +138,7 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
                 <div 
                 key={id}
                 className="episode-card">
-                    <img src={`https://image.tmdb.org/t/p/original${still_path}`} alt="" />
+                    <img src={`https://image.tmdb.org/t/p/original${still_path ? still_path : tv.backdrop_path }`} alt="" />
                     <div className="episode-number">{episode_number}</div>
                     <div className="info-episode">
                         <h1>{name}</h1>

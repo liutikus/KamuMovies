@@ -80,6 +80,10 @@ border-radius: 10px;
 .info-episode p{
     font-size: 1em;
     padding-inline: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     
 }
 

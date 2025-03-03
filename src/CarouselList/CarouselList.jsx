@@ -6,7 +6,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
 
-const CarouselList = ({movieData, carouselTitle, mediaType}) => {
+const CarouselList = ({movieData, carouselTitle, mediaType,handleLoading}) => {
 
     const flickityOptions = {
         initialIndex: 0,
@@ -34,13 +34,16 @@ const CarouselList = ({movieData, carouselTitle, mediaType}) => {
         key={id}
         className='carousel-card-container'>
           <NavLink to={`/${mediaType}/${id}`}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" })
+              handleLoading(true)
+          }}
 
           >
             <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
             <p className="movie-title">
                 {title ? title: name}
-                {console.log(mediaType)}
+               
             </p>
           </NavLink>
             <div className="movie-info">

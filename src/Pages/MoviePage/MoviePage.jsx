@@ -51,6 +51,10 @@ const MoviePage = () => {
     },1000)
   }
 
+  const handleLoading = (param)=>{
+    setLoading(param)
+  }
+
   useEffect(() => {
     fetchMovieDetails(setMovie, "");
     fetchMovieDetails(setCredits, "/credits");
@@ -167,7 +171,9 @@ const MoviePage = () => {
                 }
             
                  <div className="recom-movies-container">
-          <CarouselList carouselTitle={"You may like"} movieData={recom.results} mediaType={mediaType}/>
+          <CarouselList carouselTitle={"You may like"} movieData={recom.results} mediaType={mediaType}
+          handleLoading={handleLoading}
+          />
           <div className="background-black" >
 
           </div>

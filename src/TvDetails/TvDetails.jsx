@@ -8,7 +8,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 
 
 
-const TvDetails = ({tv, images, videos, credits, id}) => {
+const TvDetails = ({tv, images, videos, credits}) => {
 
     
     const [season, setSeason] = useState(null)
@@ -18,7 +18,7 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
     value: 0,
     label: '',
    }])
-
+console.log(tv.id)
    
 
     const customStyles = {
@@ -73,7 +73,7 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
     const fetchSeasonDetails = (num)=>{
         const options = {
             method: 'GET',
-            url: `https://api.themoviedb.org/3/tv/${id}/season/${num}`,
+            url: `https://api.themoviedb.org/3/tv/${tv.id}/season/${num}`,
             params: {language: 'en-US'},
             headers: {
               accept: 'application/json',
@@ -97,7 +97,6 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
 
     },[seasonNumber])
 
-    console.log(tv)
 
   return (
     <div>
@@ -134,7 +133,8 @@ const TvDetails = ({tv, images, videos, credits, id}) => {
               )}
             >
             
-            {season && season.episodes.map(({id, name, overview, still_path, episode_number})=>(
+            {season && 
+            season.episodes.map(({id, name, overview, still_path, episode_number})=>(
                 <div 
                 key={id}
                 className="episode-card">

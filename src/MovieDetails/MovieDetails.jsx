@@ -23,7 +23,7 @@ useEffect(() => {
   );
 }, [images]); 
 
-  console.log(trailer)
+  
 
   return (
     

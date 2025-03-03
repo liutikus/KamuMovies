@@ -8,12 +8,16 @@ import MovieDetails from "../../MovieDetails/MovieDetails";
 import noImage from '/Images/no-profile-picture.png'
 import TvDetails from "../../TvDetails/TvDetails";
 import CarouselList from "../../CarouselList/CarouselList";
+import Loading from "../../Componets/Loading";
 
 
 const MoviePage = () => {
   const { id } = useParams();
   const {mediaType} = useParams()
+
+
   
+  const [loading, setLoading]= useState(false)
   const [movie, setMovie] = useState(null);
   const [credits, setCredits] = useState(null);
   const [img, setImg] = useState(null);
@@ -21,6 +25,9 @@ const MoviePage = () => {
   const[recom, setRecom]= useState(null)
 
   const fetchMovieDetails = (setData, credits) => {
+
+    setLoading(true)
+
     const options = {
       method: "GET",
       url: `https://api.themoviedb.org/3/${mediaType}/${id}${credits}`,
@@ -34,8 +41,15 @@ const MoviePage = () => {
     axios
       .request(options)
       .then((res) => setData(res.data))
+      // .then(()=> setLoading(false))
       .catch((err) => console.error(err));
   };
+
+  if(loading){
+    setTimeout(()=>{
+      setLoading(false)
+    },1000)
+  }
 
   useEffect(() => {
     fetchMovieDetails(setMovie, "");
@@ -49,8 +63,12 @@ const MoviePage = () => {
   return (
     <div>
       <Nav customTabs={[""]} />
-
-      {movie && credits && (
+      {loading ? (
+  <div> <Loading/></div>
+): <div>
+  
+  </div>}
+      {movie && credits && video && recom && (
         <div className="main-movie-page-container">
           <div className="background-container">
             <img
@@ -92,13 +110,21 @@ const MoviePage = () => {
                     
                     ))}
                 </div>
+                <h1>{movie.title}</h1>
                 <div className="review-container">
                    <span><FaStar/></span> <p>{movie.vote_average.toFixed(1)} / 10 <span>({movie.vote_count})</span></p>
                 </div>
                 <div className="overview-details-container">
+                  <h1 style={{display: 'inline'}}>{
+                 credits.crew.filter(({job})=>job === 'Director').length
+                   === 1 ? 'Director:' : 'Directors:'
+                  }</h1>
                     {credits.crew.filter(({job})=>job === 'Director')
-                        .map(({name, id})=>(
-                        <div key={id}>Director: {name}</div>
+                        .map(({name, id, index})=>(
+                        <div style={{margin: ' 5px 0 0 0' }} key={id}> {name}
+                      
+                        </div>
+                          
                         ))}
                     <p>{movie.overview}</p>
                 </div>
@@ -151,7 +177,6 @@ const MoviePage = () => {
           </div>
         </div>
       )}
-      {console.log('norm')}
     </div>
   );
 };

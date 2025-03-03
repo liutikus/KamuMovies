@@ -27,13 +27,16 @@ const CarouselList = ({movieData, carouselTitle, mediaType}) => {
         options={flickityOptions} // takes flickity options {}
         disableImagesLoaded={false} // default false
         reloadOnUpdate // default false
-        static>
+        >
         {movieData.map(({poster_path, title, id, release_date, vote_average, first_air_date, name,})=>(
             
         <div
         key={id}
         className='carousel-card-container'>
-          <NavLink to={`/${mediaType}/${id}`}>
+          <NavLink to={`/${mediaType}/${id}`}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+
+          >
             <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
             <p className="movie-title">
                 {title ? title: name}

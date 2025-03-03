@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 
 
 
-const Carousell = ({movieData}) => {
+const Carousell = ({movieData, mediaType}) => {
 
     const flickityOptions = {
         draggable: false,
@@ -34,7 +34,7 @@ const Carousell = ({movieData}) => {
           
                 <div className="card-container">
                     <div className="poster-container">
-                    <NavLink to={`/movie/${id}`}>
+                    <NavLink to={`/${mediaType}/${id}`}>
 
                     <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
                     </NavLink>
@@ -50,7 +50,7 @@ const Carousell = ({movieData}) => {
                     </div>
                 </div>
                 <div className="background-img-container">
-                <NavLink to={`/movie/${id}`}>
+                <NavLink to={`/${mediaType}/${id}`}>
 
                     <div 
                     style={{position:'absolute', width: '100%', height:'100%', backgroundColor:'black', zIndex:1, borderRadius: 20, opacity: 0.5}}/>

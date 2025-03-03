@@ -6,7 +6,8 @@ import "react-photo-album/rows.css";
 
 const MovieDetails = ({movie, videos, credits, images, recom}) => {
 
-const trailer = videos.find(({type})=> type === 'Trailer')
+const trailer = videos.find(({type})=> type === 'Trailer') ? videos.find(({type})=> type === 'Trailer') 
+: videos[0]
 
 const[backdropsImages, setBackdropsImages]= useState([])
 
@@ -14,7 +15,7 @@ useEffect(() => {
   if (!images?.backdrops?.length) return; // Ensures images.posters exists and isn't empty
 
   setBackdropsImages(
-    images.backdrops.slice(1, 4).map(({ file_path, height, width }) => ({
+    images.backdrops.slice(0, 3).map(({ file_path, height, width }) => ({
       src: `https://image.tmdb.org/t/p/original${file_path}`,
       width,
       height,
@@ -22,12 +23,16 @@ useEffect(() => {
   );
 }, [images]); 
 
-  console.log(videos)
+  console.log(trailer)
 
   return (
+    
     <div className='main-movie-details-container'>
+
       <div className="media-movie-details-container">
 
+        {images.backdrops &&
+        (
       <div className="images-container">
         <h1>Images:</h1>
       <RowsPhotoAlbum photos={backdropsImages}
@@ -37,6 +42,11 @@ useEffect(() => {
         
 
       </div>
+
+        )
+         }
+
+         {videos.length> 0 ? (
       <div className="videos-container">
         <h1>Official Trailer:</h1>
         <YouTube
@@ -45,7 +55,11 @@ useEffect(() => {
         />
         <div className="background-black"></div>
       </div>
+
+         ): null}
+
       </div>
+      
      
     </div>
   )

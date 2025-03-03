@@ -102,7 +102,9 @@ h1{
     width: 100px;
     border-radius: 10px;
 }
-
+.credits-card div{
+    width: 100px;
+}
 .credits-card span{
     color: #aaacad;
 }
@@ -135,8 +137,8 @@ font-size: 2.5em;
 
 .recom-movies-container{
     position: absolute;
-    width: 110vw;
-    left: -10vw;
+    
+   width: 100%;
     margin-block-start: 5em;  
     height: min-content;
 

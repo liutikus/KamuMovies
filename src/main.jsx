@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import React from "react";
 import './index.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import App from './App.jsx'
 
 
@@ -11,9 +11,9 @@ ReactDOM.createRoot(root).render(
 
 
 
-  <BrowserRouter basename="/KamuMovies">
+  <Router >
    <App/>
-  </BrowserRouter>
+  </Router>
 
 
 );

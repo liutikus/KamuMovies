@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './TvDetails.css'
 import axios from 'axios';
 import Select from 'react-select'
-import { BsBorderStyle } from 'react-icons/bs';
-import { BiBorderRadius } from 'react-icons/bi';
-import { Scrollbars } from 'react-custom-scrollbars-2';
 import noImage from '/Images/noImages.png'
+
 
 
 
@@ -116,26 +114,9 @@ const TvDetails = ({tv, images, videos, credits}) => {
         <input type="text" placeholder='Search Episode...' />
         </div>
         <div className="episodes-container">
-            <Scrollbars
-            style={{ width: '100%', height: 450 }}
-            autoHide
-            autoHideTimeout={1000}
-            autoHideDuration={200}
-            renderThumbVertical={(props) => (
-                <div
-                  {...props}
-                  style={{
-                    backgroundColor: "#362166", 
-                    borderRadius: "10px",
+   
+           
 
-                  }}
-                />
-              )}
-              renderTrackVertical={(p) => (
-                <div className="trackVertical" {...p} />
-              )}
-            >
-            
             {season && 
             season.episodes.map(({id, name, overview, still_path, episode_number})=>(
                 <div 
@@ -152,7 +133,8 @@ const TvDetails = ({tv, images, videos, credits}) => {
                     </div>
                 </div>
             ))}
-            </Scrollbars>
+   
+          
 
         </div>
 

@@ -21,9 +21,9 @@ useEffect(() => {
       height,
     }))
   );
-}, [images]); 
+}, [images, movie.id]); 
 
-  
+  console.log(images)
 
   return (
     

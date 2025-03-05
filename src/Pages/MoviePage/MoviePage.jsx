@@ -6,6 +6,8 @@ import "./MoviePage.css";
 import { FaStar } from "react-icons/fa";
 import MovieDetails from "../../MovieDetails/MovieDetails";
 import noImage from '/Images/no-profile-picture.png'
+import noPosterImage from '/Images/noImages.png'
+import noBackdropImage from '/Images/desktop-wallpaper-film-strip-background.jpg'
 import TvDetails from "../../TvDetails/TvDetails";
 import CarouselList from "../../CarouselList/CarouselList";
 import Loading from "../../Componets/Loading";
@@ -77,7 +79,8 @@ const MoviePage = () => {
           <div className="background-container">
             <img
               src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-              alt=""
+              alt="no backdrops images"
+              onError={e=> e.currentTarget.src = noBackdropImage}
               className="background-img"
             />
             
@@ -88,7 +91,8 @@ const MoviePage = () => {
               <div className="poster-details-container">
                 <img
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt=""
+                  alt="no img"
+                  onError={e=> e.currentTarget.src = noPosterImage}
                 />
               </div>
               <div className="info-container">
@@ -169,6 +173,7 @@ const MoviePage = () => {
                         />
                     )
                 }
+            {recom.total_results ? (
             
                  <div className="recom-movies-container">
           <CarouselList carouselTitle={"You may like"} movieData={recom.results} mediaType={mediaType}
@@ -179,6 +184,7 @@ const MoviePage = () => {
           </div>
 
       </div>
+            ): null}
             </div>
           </div>
         </div>

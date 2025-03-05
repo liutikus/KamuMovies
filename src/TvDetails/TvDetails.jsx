@@ -5,6 +5,7 @@ import Select from 'react-select'
 import { BsBorderStyle } from 'react-icons/bs';
 import { BiBorderRadius } from 'react-icons/bi';
 import { Scrollbars } from 'react-custom-scrollbars-2';
+import noImage from '/Images/noImages.png'
 
 
 
@@ -18,7 +19,7 @@ const TvDetails = ({tv, images, videos, credits}) => {
     value: 0,
     label: '',
    }])
-console.log(tv.id)
+
    
 
     const customStyles = {
@@ -89,13 +90,15 @@ console.log(tv.id)
 
     useEffect(()=>{
        fetchSeasonDetails(seasonNumber)
+      if(tv.seasons){
 
-       setSelectOptions(tv.seasons.map(({season_number})=>({
-        value: season_number,
-        label: `Season ${season_number}`
-       })))
+        setSelectOptions(tv.seasons.map(({season_number})=>({
+         value: season_number,
+         label: `Season ${season_number}`
+        })))
+      }
 
-    },[seasonNumber])
+    },[seasonNumber, tv.id])
 
 
   return (
@@ -138,7 +141,10 @@ console.log(tv.id)
                 <div 
                 key={id}
                 className="episode-card">
-                    <img src={`https://image.tmdb.org/t/p/original${still_path ? still_path : tv.backdrop_path }`} alt="" />
+                    <img src={`https://image.tmdb.org/t/p/original${still_path ? still_path : tv.backdrop_path }`} 
+                    alt="no img"
+                    onError={e=>e.currentTarget.src = noImage}
+                    />
                     <div className="episode-number">{episode_number}</div>
                     <div className="info-episode">
                         <h1>{name}</h1>

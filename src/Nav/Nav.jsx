@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Nav.css'
 import { CiSearch } from "react-icons/ci";
 import {tabsName} from '../DB/data.js'
@@ -15,13 +15,17 @@ const Nav = ({getMediaType, customTabs}) => {
 
     const [selectedTab, setSelectedTab] = useState(tabsName[0])
     const [isOpen, setIsOpen] = useState(false)
-    const [searchInput, setSearchInput] = useState('bad')
+    const [searchInput, setSearchInput] = useState('')
     const [searchResult, setSearchResult] = useState(null)
+
+    const searchInputRef = useRef(null)
 
 
     const tabs = customTabs ? customTabs : tabsName
 
-
+    const handleSearchFocus = () =>{
+        searchInputRef.current.focus()
+    }
 
     const fetchSearchData = (searchInput)=>{
 
@@ -51,11 +55,15 @@ const Nav = ({getMediaType, customTabs}) => {
        
     }, [searchInput])
 
+const clearSearch = ()=> {
+    setIsOpen(false)
+    setSearchInput('')
 
+}
 
 
   return (
-    <div >
+    <div className='main-nav-container' >
       <div className="nav-container">
         <div className="upper-nav">
 
@@ -90,31 +98,14 @@ const Nav = ({getMediaType, customTabs}) => {
             </ul>
         </div>
 
-        {/* <div className="nav-input">
-            <input 
-            type="text"
-            placeholder='Search...' 
-            value={searchInput} 
-            onChange={e=> setSearchInput(e.target.value)}
-             />
-            <motion.button
-            whileHover={{scale: 1.2}}
-            whileTap={{scale: 0.8}}
-            ><CiSearch/></motion.button>
-        </div>
-        {searchResult && (
-
-        <SearchWindow 
-        searchResult={searchResult.slice(0,5)}
-        />
-        )} */}
         
         <motion.p className='search-icon'
             onClick={()=>{
                  setIsOpen(!isOpen)
                 setSearchInput('')
+                handleSearchFocus()
                 }}
-               whileHover={{scale: 1.2}}
+               whileHover={{scale: 0.9}}
              whileTap={{scale: 0.8}}
             ><CiSearch/></motion.p>
         </div>
@@ -125,13 +116,14 @@ const Nav = ({getMediaType, customTabs}) => {
             <div className={
                 isOpen? 'input-roll-container active': 'input-roll-container'
             }>
-                <input 
+                <input
+                ref={searchInputRef} 
                 type="text" 
                 placeholder='Search...' 
                 value={searchInput} 
                 onChange={e=> setSearchInput(e.target.value)} />
                 <motion.p
-                   whileHover={{scale: 1.2}}
+                   whileHover={{scale: 0.9}}
                    whileTap={{scale: 0.8}}
                 onClick={()=> {setIsOpen(false)
                 setSearchInput('')
@@ -144,6 +136,7 @@ const Nav = ({getMediaType, customTabs}) => {
                             
                             <SearchWindow 
                             searchResult={searchResult.slice(0,3)}
+                            clearSearch={clearSearch}
                             />
                         )
                     }

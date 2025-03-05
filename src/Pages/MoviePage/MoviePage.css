@@ -70,6 +70,8 @@ width: 400px;
     border-width: 1px;
     padding-block: 2px;
     margin-block: 5px;
+    background: none;
+    color: #e3eaeb;
 }
 
 .overview-details-container p{

@@ -11,7 +11,7 @@ ReactDOM.createRoot(root).render(
 
 
 
-  <BrowserRouter>
+  <BrowserRouter basename="/KamuMovies">
    <App/>
   </BrowserRouter>
 

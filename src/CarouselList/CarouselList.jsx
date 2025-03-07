@@ -26,7 +26,7 @@ const CarouselList = ({movieData, carouselTitle, mediaType,handleLoading}) => {
         elementType={'div'} // default 'div'
         options={flickityOptions} // takes flickity options {}
         disableImagesLoaded={false} // default false
-        reloadOnUpdate // default false
+        reloadOnUpdate async 
         >
         {movieData.map(({poster_path, title, id, release_date, vote_average, first_air_date, name,})=>(
             

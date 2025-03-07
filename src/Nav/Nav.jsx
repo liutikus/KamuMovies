@@ -117,6 +117,7 @@ const clearSearch = ()=> {
                 isOpen? 'input-roll-container active': 'input-roll-container'
             }>
                 <input
+                style={{visibility : isOpen ? 'visible' : 'hidden'}}
                 ref={searchInputRef} 
                 type="text" 
                 placeholder='Search...' 

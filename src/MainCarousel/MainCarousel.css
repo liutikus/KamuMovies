@@ -35,7 +35,7 @@
 .title{
     font-size: 2em;
     display: -webkit-box;
-    -webkit-line-clamp: 1; 
+    -webkit-line-clamp: 4; 
     -webkit-box-orient: vertical;
     overflow: hidden;
     
@@ -71,11 +71,10 @@
     }
 
     .text-container{
-        font-size: 0.5em;
+        font-size: 0.7em;
     }
 
    .overview{
-    font-size: 1.2em;
-   
+display: none;   
    }
 }

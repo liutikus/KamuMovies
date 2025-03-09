@@ -193,7 +193,7 @@ font-size: 2.5em;
     width: 80px;
 }
 .credits-card p, .credits-card span{
-    padding-inline: 10px;
+    padding-inline-start: 10px;
 }
 
 .recom-movies-container{

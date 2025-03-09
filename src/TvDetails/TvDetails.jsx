@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './TvDetails.css'
 import axios from 'axios';
 import Select from 'react-select'
-import { BsBorderStyle } from 'react-icons/bs';
-import { BiBorderRadius } from 'react-icons/bi';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import noImage from '/Images/noImages.png'
 
@@ -127,6 +125,7 @@ const TvDetails = ({tv, images, videos, credits}) => {
                   style={{
                     backgroundColor: "#362166", 
                     borderRadius: "10px",
+                   
 
                   }}
                 />
